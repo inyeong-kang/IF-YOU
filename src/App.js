@@ -11,6 +11,8 @@ import choices from "./story/choices";
 import TitleScreen from "./components/TitleScreen";
 import Backlog from "./components/Backlog";
 import ChoiceMenu from "./components/ChoiceMenu";
+import AnswerForm from "./components/AnswerForm";
+import GameResult from "./components/GameResult";
 import ConfigMenu from "./components/ConfigMenu";
 import RenderFrame from "./components/RenderFrame";
 import MenuButtons from "./components/MenuButtons";
@@ -27,9 +29,10 @@ import "./styles/sprites.css";
 import "./styles/textbox.css";
 import "./styles/titlescreen.css";
 import "./styles/transitions.css";
+import "./styles/answerform.css";
 
 const INITIAL_STATE = {
-  bgmVolume: 80,
+  bgmVolume: 40,
   soundEffectVolume: 90,
   voiceVolume: 100,
   font: "Trebuchet MS",
@@ -41,6 +44,8 @@ const INITIAL_STATE = {
   choicesIndexHistory: [],
   indexHistory: [],
   choicesExist: false,
+  answerFormExist: false,
+  resultExist: false,
   configMenuShown: false,
   titleScreenShown: true,
   frameIsRendering: false,
@@ -143,6 +148,8 @@ class App extends Component {
       bg: story[index].bg,
       bgm: story[index].bgm,
       choicesExist: story[index].choicesExist,
+      answerFormExist: story[index].answerFormExist,
+      resultExist: story[index].resultExist,      
       soundEffect: story[index].soundEffect,
       speaker: story[index].speaker,
       sprite: story[index].sprite,
@@ -157,7 +164,6 @@ class App extends Component {
       text: story[index].text,
       bgTransition: story[index].bgTransition,
       voice: story[index].voice,
-      answer: story[index].answer
     });
   }
 
@@ -178,8 +184,10 @@ class App extends Component {
         spriteRightTransition={this.state.spriteRightTransition}
         speaker={this.state.speaker}
         text={this.state.text}
-        textBoxShown={this.state.textBoxShown}
+        textBoxShown={this.state.textBoxShown}        
         bgTransition={this.state.bgTransition}
+        answerFormShown={this.state.answerFormExist}
+        resultExist={this.state.resultExist}        
       />
     );
   }
@@ -219,6 +227,16 @@ class App extends Component {
     );
   }
 
+  handleButtonClicked(event) {
+    this.stopSkip();
+  }
+/*
+  renderAnswerForm() {
+    return (
+      <AnswerForm onAnswerWritten={this.handleButtonClicked.bind(this)}></AnswerForm>
+    );
+  }
+*/
   toggleConfigMenu() {
     if (this.state.saveMenuShown) {
       this.setState({ saveMenuShown: false });

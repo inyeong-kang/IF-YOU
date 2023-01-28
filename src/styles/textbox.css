@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 .text-box {
   position: absolute;
   bottom: 20px;
@@ -26,6 +28,31 @@
   margin-top: 6px;
   font-size: 22px;
   line-height: 1.95;
+  font-family: 'Hanna', fantasy;
+}
+
+.answer-input {
+  width: 280px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.answer-button {
+  font-family: 'Hanna', fantasy;
+  border-radius: 9px;
+  padding: 5px;
+  min-width: 90px;
+  height: 32px;
+  color: black;
+  font-weight: 300;
+  background-color: #EFA3C8;
+  border-color: #EBC7E6;
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -62,6 +89,7 @@
   height: 38px;
   font-size: 28px;
   z-index: 3;
+  font-family: 'Hanna', fantasy;
 }
 
 @media only screen and (max-width: 768px) {

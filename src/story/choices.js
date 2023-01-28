@@ -3,15 +3,9 @@ var choices = [
     choices: [
       {
         routeBegins: "showEffects",
-        content: "Effects",
+        content: "공략 결과 확인하기",
         nextIndex: 0
       },
-      {
-        routeBegins: "showTransitions",
-        content: "Transitions",
-        nextIndex: 0
-      },
-
       {
         routeBegins: "showStoringChoices",
         content: "세종대 뉴비로 살아남기",
@@ -19,7 +13,7 @@ var choices = [
       },
       {
         routeBegins: "leave",
-        content: "Leave"
+        content: "홈으로"
       }
     ]
   },
@@ -36,21 +30,6 @@ var choices = [
       }
     ]
   },
-  {
-    choices: [
-      {
-        store: "blockAffection",
-        routeBegins: "hangOutWithBlock",
-        content: "Yep.",
-        nextIndex: 0
-      },
-      {
-        routeBegins: "noHangOutWithBlock",
-        content: "Nope.",
-        nextIndex: 0
-      }
-    ]
-  }
 ];
 
 export default choices;

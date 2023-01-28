@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 .overlay-choices {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -7,10 +9,11 @@
 
 .overlay .choice-button {
   font-size: 26px;
+  font-family: 'Hanna', fantasy;
   width: 750px;
   margin: 30px auto;
   border-radius: 25px;
-  background-color: #1d75a5;
+  background-color: #EFA3C8;
   border: none;
   color: white;
   padding: 12px 0px;
@@ -31,6 +34,3 @@
   background-color: white;
   color: #1d75a5;
 }
-
-
-

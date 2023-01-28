@@ -1,5 +1,7 @@
 import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import AnswerForm from "./AnswerForm";
+import GameResult from "./GameResult";
 
 function RenderFrame(props) {
   function bgTransitionTime(key) {
@@ -69,8 +71,11 @@ function RenderFrame(props) {
         <div className="text-box" style={{ fontFamily: props.font }}>
           {props.speaker ? <div className="speaker"> {props.speaker} </div> : null}
           <div className="text">{props.speaker ? `"${props.text}"` : props.text}</div>
+          {props.answerFormShown ? <AnswerForm></AnswerForm> : null}
+          {props.resultExist ? <GameResult></GameResult> : null}
         </div>
       ) : null}
+      
     </div>
   );
 }
