@@ -7,7 +7,7 @@ const RESULT_URL = '/result';
 
 function GameResult() {
 
-    const [result, setResult] = useState({});
+    const [result, setResult] = useState('');
     const [loading, setLoading] = useState(false);
 
     const fetchResult = async () => {
@@ -16,18 +16,21 @@ function GameResult() {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const id = 'yh';
-        /*
-        const response = axios.post(
-            RESULT_URL,
-            JSON.stringify({ id }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true,
-                }
-        );
-        console.log(response);
-        setResult(response.data);
-        */
+        fetch('http://34.80.243.76:6006/result', {
+            method : "POST",
+            headers : {
+                "Content-Type":"application/json; charset=utf-8"
+            },
+            body: JSON.stringify(id)
+            })
+        .then(res=>{
+                console.log(res)
+                setResult(res);
+                return res.json();
+        }).then(res=> {
+            console.log(res);
+        });
+
         } catch (err) {
             console.log(err);
         }

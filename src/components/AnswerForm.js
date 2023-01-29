@@ -3,6 +3,7 @@ import axios from '../api/axios';
 
 import "../styles/answerform.css";
 
+const BASE_URL = 'http://34.80.243.76:6006/';
 const PREDICT_URL = '/predict';
 
 function AnswerForm() {
@@ -12,24 +13,20 @@ function AnswerForm() {
 
   const handleButtonClicked = async (event) => {
     event.preventDefault();
-    try {
-      const id = 'test1';
-      const idx = 0;
-      /*
-			const response = axios.post(
-				PREDICT_URL,
-				JSON.stringify({ id, answer, idx }),
-				{
-					headers: { 'Content-Type': 'application/json' },
-					withCredentials: true,
-				}
-			);
-      
-      console.log(response);
-      */
-		} catch (err) {
-      console.log(err);
-		}
+    fetch('http://34.80.243.76:6006/predict', {
+      method : "POST",
+      headers : {
+          "Content-Type":"application/json; charset=utf-8"
+      },
+      body: JSON.stringify(answer)
+    })
+    .then(res=>{
+        console.log(res)
+        return res.json();
+    })
+    .then(res=> {
+        console.log(res);
+    });
   };
 
   return (
