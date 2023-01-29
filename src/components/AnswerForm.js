@@ -15,6 +15,7 @@ function AnswerForm() {
     try {
       const id = 'test1';
       const idx = 0;
+      /*
 			const response = axios.post(
 				PREDICT_URL,
 				JSON.stringify({ id, answer, idx }),
@@ -23,7 +24,9 @@ function AnswerForm() {
 					withCredentials: true,
 				}
 			);
+      
       console.log(response);
+      */
 		} catch (err) {
       console.log(err);
 		}

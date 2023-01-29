@@ -6,7 +6,7 @@ const library = require("./bg/library.png");
 // bgm
 const take = require("./bgm/take.mp3");
 // speakers
-const b = "용현 선배";
+const b = "스클 선배";
 // sprites
 const bn = require("./sprites/student.png");
 const bh = require("./sprites/block-happy.png");

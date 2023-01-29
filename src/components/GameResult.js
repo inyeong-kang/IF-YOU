@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from '../api/axios';
+//import axios from '../api/axios';
 
 //import "../styles/GameResult.css";
 
@@ -16,6 +16,7 @@ function GameResult() {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const id = 'yh';
+        /*
         const response = axios.post(
             RESULT_URL,
             JSON.stringify({ id }),
@@ -26,7 +27,7 @@ function GameResult() {
         );
         console.log(response);
         setResult(response.data);
-
+        */
         } catch (err) {
             console.log(err);
         }
