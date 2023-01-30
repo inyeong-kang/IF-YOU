@@ -13,8 +13,7 @@ function AnswerForm() {
   const handleButtonClicked = async (event) => {
     event.preventDefault();
     try {
-      const id = 'test3';
-      const idx = 0;
+      const id = localStorage.getItem("name");
       
 			const response = axios.post(
 				PREDICT_URL,
@@ -37,7 +36,7 @@ function AnswerForm() {
       <form>
         <input
           className="answer-input"
-          type="answer"
+          type="text"
           name="answer"
           value={answer}
           onChange={handleChange}

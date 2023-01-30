@@ -6,18 +6,15 @@ import axios from '../api/axios';
 const RESULT_URL = '/result';
 
 function GameResult() {
-
     const [result, setResult] = useState('');
-    const [loading, setLoading] = useState(false);
 
     const fetchResult = async () => {
       try {
         setResult(null);
         // loading 상태를 true 로 바꿉니다.
-        setLoading(true);
-        const id = 'yh';
+        const id = localStorage.getItem("name");
         
-        const response = axios.post(
+        const response = await axios.post(
             RESULT_URL,
             JSON.stringify({ id }),
                 {
@@ -26,6 +23,7 @@ function GameResult() {
                 }
         );
         console.log(response);
+        console.log(response.data);
         setResult(response.data);
         
         } catch (err) {
@@ -39,7 +37,8 @@ function GameResult() {
 
     return (
         <div className="game-result">
-            
+            { result != 'nothing' || result != undefined ? String(result) + "점이군요!" : '(게임을 먼저 완료해주세요!)'}
+            { result >= 5 ? " 이제 당신에게 필요한 건 고백할 용기 하나!😄" : "좀 더 친해지길 바라! 고백은 다음에~..😥"}
         </div>
     );
 }

@@ -11,8 +11,6 @@ import choices from "./story/choices";
 import TitleScreen from "./components/TitleScreen";
 import Backlog from "./components/Backlog";
 import ChoiceMenu from "./components/ChoiceMenu";
-import AnswerForm from "./components/AnswerForm";
-import GameResult from "./components/GameResult";
 import ConfigMenu from "./components/ConfigMenu";
 import RenderFrame from "./components/RenderFrame";
 import MenuButtons from "./components/MenuButtons";
@@ -45,6 +43,7 @@ const INITIAL_STATE = {
   indexHistory: [],
   choicesExist: false,
   answerFormExist: false,
+  nameFormExist: false,  
   resultExist: false,
   configMenuShown: false,
   titleScreenShown: true,
@@ -149,6 +148,7 @@ class App extends Component {
       bgm: story[index].bgm,
       choicesExist: story[index].choicesExist,
       answerFormExist: story[index].answerFormExist,
+      nameFormExist: story[index].nameFormExist,
       resultExist: story[index].resultExist,      
       soundEffect: story[index].soundEffect,
       speaker: story[index].speaker,
@@ -187,6 +187,7 @@ class App extends Component {
         textBoxShown={this.state.textBoxShown}        
         bgTransition={this.state.bgTransition}
         answerFormShown={this.state.answerFormExist}
+        nameFormExist={this.state.nameFormExist}
         resultExist={this.state.resultExist}        
       />
     );
@@ -230,13 +231,7 @@ class App extends Component {
   handleButtonClicked(event) {
     this.stopSkip();
   }
-/*
-  renderAnswerForm() {
-    return (
-      <AnswerForm onAnswerWritten={this.handleButtonClicked.bind(this)}></AnswerForm>
-    );
-  }
-*/
+
   toggleConfigMenu() {
     if (this.state.saveMenuShown) {
       this.setState({ saveMenuShown: false });

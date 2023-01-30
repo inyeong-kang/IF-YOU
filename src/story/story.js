@@ -8,21 +8,25 @@ const take = require("./bgm/take.mp3");
 // speakers
 const b = "스클 선배";
 // sprites
-const bn = require("./sprites/student.png");
-const bh = require("./sprites/block-happy.png");
-const bp = require("./sprites/block-pout.png");
-//정답 문장을 위한 폼
+const student = require("./sprites/student.png");
+const student1 = require("./sprites/student1.png");
+
+const name = localStorage.getItem("name");
 
 let story = [
   {
     bg: dongbang,
     bgm: take,
-    sprite: bn,
+    sprite: student,
     speaker: b,
     text: "그럼 게임을 시작해볼까요?"
   },
   {
     text: "이제부터 당신은 게임 속 주인공이 되어서 등장인물을 공략해야 해요!"
+  },
+  {
+    text: "먼저 당신의 이름을 입력해주세요!", 
+    nameFormExist: true
   },
   {
     text: "상대의 말에 대한 반응을 입력하고, 공략 결과는 엔딩에서 확인할 수 있답니다"
@@ -33,8 +37,8 @@ let story = [
   {
     routeBegins: "showEffects",
     speaker: b,
-    sprite: bn,
-    text: "당신의 점수는...",
+    sprite: student,
+    text: name + "님의 점수는...",
     resultExist: true
   },
   {
@@ -50,7 +54,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "자, 지원서는 여기에 있어요!"
   },
   { 
@@ -64,17 +68,17 @@ let story = [
   }, 
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "지원 감사해요! 우리 동아리는 지원하면 합격이라..ㅎㅎ"
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "앞으로 잘 부탁해요!"
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "앗 벌써 점심이네요.. 같이 밥 먹으러 가요! 아는 맛집 있어요?"
   },
   { 
@@ -84,7 +88,7 @@ let story = [
   },
   { 
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "아 그래요? 학교 후문에 진짜 맛있는 데 거기 가요!",
   },
   { 
@@ -102,7 +106,7 @@ let story = [
   },
   { 
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "혼자 공부하는 거 잘 돼?",
   },
   { 
@@ -116,7 +120,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "으아 공부 오래 하니까 힘드네ㅎㅎ"
   },
   { 
@@ -132,7 +136,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student,
     text: "난 이제 집에 가려구! 너는 어떻게 할거야?"
   },
   {   
@@ -155,7 +159,7 @@ let story = [
   },
   { 
     speaker: b,
-    sprite: bn,
+    sprite: student1,
     text: "도와줘서 고마워! 쓰레기통 비울래, 물품 정리할래, 빗자루질 할래?",
   },
   { 
@@ -168,7 +172,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student1,
     text: "심심한데 같이 유튜브 볼래? 아니면 보드게임 할래?"
   },
   { 
@@ -187,14 +191,14 @@ let story = [
     bg: school
   },
   {
-    text: "(저녁을 먹고 같이 어린이 대공원에 가기로 했다.)"
+    text: "(저녁을 먹고 같이 어린이대공원에 가기로 했다.)"
   },
   {
     text: "(하지만 곧 폐장시간이라 한 곳밖에 들리지 못할 것 같은데..)"
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student1,
     text: "여기 너무 넓어서 한 곳만 가려구! 바로 앞에 있는 분수대 갈래? 아니면 저 멀리 있는 꽃밭으로 갈까?"
   },
   {   
@@ -204,7 +208,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student1,
     text: "오 그래그래ㅎㅎ 거기서 뭐하려고?"
   },
   {   
@@ -217,7 +221,7 @@ let story = [
   },
   {
     speaker: b,
-    sprite: bn,
+    sprite: student1,
     text: "나 어때? 잘 나온 것 같아?"
   },
   {   

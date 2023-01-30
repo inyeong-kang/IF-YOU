@@ -1,6 +1,7 @@
 import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import AnswerForm from "./AnswerForm";
+import NameForm from "./NameForm";
 import GameResult from "./GameResult";
 
 function RenderFrame(props) {
@@ -72,6 +73,7 @@ function RenderFrame(props) {
           {props.speaker ? <div className="speaker"> {props.speaker} </div> : null}
           <div className="text">{props.speaker ? `"${props.text}"` : props.text}</div>
           {props.answerFormShown ? <AnswerForm></AnswerForm> : null}
+          {props.nameFormExist ? <NameForm></NameForm> : null}
           {props.resultExist ? <GameResult></GameResult> : null}
         </div>
       ) : null}
